@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ultron: clear rules, tactics, players, coaches and quizzes for football, cricket, tennis, field hockey, rugby, baseball and outdoor basketball.">
+<meta name="theme-color" content="#1f7a4d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
+<title>Ultron – Rules and tactics for 7 outdoor sports</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f2f5f0;--card:#fff;--ink:#13211a;--mute:#475a4e;--line:#d3dcd1;--ac:#1f7a4d;--act:var(--ac);--hd:rgba(242,245,240,.92);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(88px + env(safe-area-inset-top,0px))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1a12;--card:#15241b;--ink:#e8f0ea;--mute:#a5b7aa;--line:#2a3d31;--hd:rgba(13,26,18,.92);--act:color-mix(in srgb,var(--ac) 45%,#fff);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1a12;--card:#15241b;--ink:#e8f0ea;--mute:#a5b7aa;--line:#2a3d31;--hd:rgba(13,26,18,.92);--act:color-mix(in srgb,var(--ac) 45%,#fff);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Archivo,system-ui,-apple-system,"Segoe UI",sans-serif}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hd);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.brand{font-size:1.6rem;font-weight:800;letter-spacing:-.03em;margin:0;line-height:1}
+.brand small{display:block;font-size:.72rem;font-weight:400;letter-spacing:0;color:var(--mute);margin-top:3px}
+form{display:flex;gap:8px;flex:1 1 320px}
+input{flex:1;min-width:0;font:inherit;padding:10px 14px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+button{font:inherit;cursor:pointer;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;min-height:42px}
+button:hover{border-color:var(--ac)}
+:focus-visible{outline:3px solid var(--act);outline-offset:2px}
+.go{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:600}
+.tools{display:flex;gap:8px}
+#vb[aria-pressed=true]{background:var(--ac);border-color:var(--ac);color:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding:20px 16px 48px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px}
+#sp{display:flex;flex-direction:column;gap:6px;position:sticky;top:96px;align-self:start}
+#sp button{text-align:left;font-weight:600;display:flex;align-items:center;gap:10px}
+#sp i{width:10px;height:10px;border-radius:50%;flex:none}
+#sp button[aria-pressed=true]{background:var(--ac);border-color:var(--ac);color:#fff}
+#sp button[aria-pressed=true] i{background:#fff!important}
+.say{margin:0 0 12px;color:var(--mute);max-width:70ch}
+.fr{margin-bottom:16px;min-height:3.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips button{font-weight:600;min-height:38px;padding:5px 12px}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.05;margin:0 0 4px;font-weight:800;letter-spacing:-.025em;border-left:8px solid var(--ac);padding-left:14px}
+.meta{color:var(--mute);margin:0 0 16px;padding-left:22px}
+#md{display:flex;gap:6px;overflow-x:auto;margin-bottom:18px;border-bottom:2px solid var(--line);padding-bottom:6px}
+#md button{border:0;background:none;white-space:nowrap;color:var(--mute);font-weight:600}
+#md button[aria-selected=true]{background:var(--ac);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--ac);border-radius:10px;padding:14px 16px}
+.item h3{margin:0 0 6px;font-size:1.05rem}
+.item p{margin:0;max-width:70ch}
+.item.wide{grid-column:1/-1}
+.tag{color:var(--act);font-weight:600;font-size:.85rem}
+.mini{font-size:.9rem;padding:4px 10px;margin-top:10px;min-height:34px}
+.opts{display:grid;gap:8px;margin:12px 0}
+.opts button{text-align:left}
+.ok{border-color:#2a9d5c!important;background:rgba(42,157,92,.18)!important}
+.bad{border-color:#c0392b!important;background:rgba(192,57,43,.16)!important}
+.prog{height:6px;background:var(--line);border-radius:4px;margin-bottom:14px}
+.prog b{display:block;height:100%;background:var(--ac);border-radius:4px}
+.ans{white-space:pre-wrap}
+mark{background:color-mix(in srgb,var(--ac) 25%,transparent);color:inherit;border-radius:3px}
+footer{max-width:1120px;margin:0 auto;padding:0 16px 40px;font-size:.85rem;color:var(--mute)}
+@media (max-width:820px){.wrap{grid-template-columns:1fr;gap:14px}#sp{flex-direction:row;overflow-x:auto;position:static;padding-bottom:6px}#sp button{white-space:nowrap}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+<style>
+/* Ultron match-day interface */
+:root{--glow:color-mix(in srgb,var(--ac) 32%,transparent)}
+body{background-image:radial-gradient(ellipse at 82% 2%,var(--glow),transparent 32rem),linear-gradient(145deg,transparent 55%,color-mix(in srgb,var(--ac) 5%,transparent))}
+.top{box-shadow:0 8px 30px rgba(0,0,0,.08)}.brand{display:flex;align-items:center;gap:10px}.brand:before{content:'U';display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--ac),#10251d);color:white;box-shadow:0 0 24px var(--glow)}
+.item{border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.06);transition:transform .22s,box-shadow .22s}.item:hover{transform:translateY(-3px);box-shadow:0 14px 34px var(--glow)}button{transition:transform .16s,border-color .16s,background .16s}button:hover{transform:translateY(-1px)}
+.hero-art{min-height:138px;margin:0 0 18px;padding:22px 24px;border-radius:22px;overflow:hidden;position:relative;color:#fff;background:linear-gradient(110deg,color-mix(in srgb,var(--ac) 92%,#06120d),#10251e 80%);box-shadow:0 16px 42px var(--glow)}.hero-art:after{content:attr(data-ball);position:absolute;right:7%;top:-.3em;font-size:8rem;opacity:.18;animation:float 5s ease-in-out infinite}.hero-art h2{border:0;padding:0}.hero-art p{margin:.4rem 0 0;max-width:48ch;color:#e2eee6}.quiz-tools{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}.quiz-tools select,.quiz-tools button{font:inherit;min-height:42px;padding:8px 12px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}.session-badge{font-size:.9rem;font-weight:700;color:var(--act);align-self:center}.agent-panel{background:linear-gradient(145deg,color-mix(in srgb,var(--ac) 10%,var(--card)),var(--card));border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0}.agent-panel textarea{width:100%;min-height:95px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit}.agent-answer{white-space:pre-wrap}.sport-football{--ball:'⚽'}.sport-cricket{--ball:'🏏'}.sport-tennis{--ball:'🎾'}.sport-fieldhockey{--ball:'🏑'}.sport-rugby{--ball:'🏉'}.sport-baseball{--ball:'⚾'}.sport-outdoorbasketball{--ball:'🏀'}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(10px) rotate(8deg)}}@keyframes toss{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(10deg)}100%{transform:translateY(0) rotate(0)}}.hero-art:after{animation-name:toss}
+@media(max-width:640px){.bar{gap:10px}.bar form{order:3;flex-basis:100%}.tools{margin-left:auto}.wrap{padding-top:14px}.hero-art{padding:18px;min-height:125px}.hero-art:after{right:2%;font-size:6rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="bar">
+<p class="brand">Ultron<small>Rules and tactics for 7 outdoor sports</small></p>
+<form id="f" role="search"><input id="q" type="search" placeholder="Search rules or ask, e.g. “when is a no-ball given?”" aria-label="Search rules or ask Ultron"><button class="go">Ask</button></form>
+<div class="tools"><button type="button" id="vb" aria-pressed="false">Read aloud</button><button type="button" id="th" aria-label="Switch colour theme">Theme</button></div>
+</div></header>
+<div class="wrap">
+<nav id="sp" aria-label="Sports"></nav>
+<main>
+<section id="fr" class="fr" aria-live="polite"></section>
+<div id="hero"></div>
+<div id="md" role="tablist" aria-label="Sections"></div>
+<section id="out" role="tabpanel" tabindex="0"></section>
+</main></div>
+<footer>Built-in notes follow the standard senior rules of each governing body. Local, junior and tournament rules can differ, so check the official rulebook before a real match.</footer>
+<noscript>This site needs JavaScript to show its content.</noscript>
+<script>
+var S=[
+{n:"Football",b:"IFAB Laws of the Game",c:"#1f7a4d",
+r:[["Offside","A player is offside if they are nearer the opponents’ goal line than both the ball and the second-last defender when the ball is played to them, in the opponents’ half. You cannot be offside from a goal kick, throw-in or corner."],
+["Fouls and cards","Kicking, tripping, pushing or deliberate handball gives a direct free kick, or a penalty inside the box. A yellow card is a caution, and a red card sends the player off."],
+["Match basics","Two halves of 45 minutes, 11 players per side. A match cannot continue with fewer than 7 players on one team."],
+["Handball","It is a foul when a player deliberately touches the ball with the hand or arm, or makes their body unnaturally bigger and the ball hits the arm."]],
+t:[["High press","Win the ball close to the opponent’s goal by pressing together after a lost pass. Risk: if the press is beaten, there is a lot of space behind you."],
+["Formations","4-3-3 gives width and a strong midfield trio. 4-4-2 is compact and balanced, with two strikers. Choose by the strengths of your players."],
+["Counter-attack","Win the ball, then play quickly forward into space before the defence can reset. Best against teams that commit many players forward."],
+["Build-up play","Pass out from the goalkeeper through defenders to draw the opponent’s press, then play through the gap that opens."]],
+s:["Leading 1-0 at the 80th minute","Switch to a compact 4-5-1, stay narrow, and keep the ball in the corners. Make fresh-leg substitutions, restart without rushing, and avoid fouls near your own box."],
+q:[["Can you be offside directly from a throw-in?",["Yes","No"],1,"There is no offside offence from a throw-in, goal kick or corner."],["What is the minimum number of players a team needs to continue a match?",["7","9","8"],0,"If a team drops below 7 players, the match cannot continue."]]},
+{n:"Cricket",b:"MCC Laws and ICC playing conditions",c:"#8a3b12",
+r:[["Over","An over is 6 legal balls from one bowler. Wides and no-balls are not legal balls: each adds a run and must be bowled again."],
+["LBW","A batter can be out if the ball hits the pad and would have hit the stumps, provided it did not pitch outside leg stump. If a shot is offered, the impact must be in line with the stumps."],
+["Formats","T20 is 20 overs per side, ODI is 50 overs, and a Test is up to five days with two innings per side."],
+["Free hit","In white-ball formats, a no-ball by the bowler gives the batter a free hit, on which most dismissals do not apply."]],
+t:[["Field placements","Attacking fields use slips and gullies to catch edges when the ball swings. Defensive fields push fielders to the boundary to save runs against power hitters."],
+["Bowling plans","Bowl yorkers and slower balls at the end of an innings, and short balls when the batter is struggling against the bouncer."],
+["Powerplay","In the first six overs of T20, only two fielders may be outside the 30-yard circle. Bowl full and attack with new-ball swing, or bat aggressively."],
+["Reviews (DRS)","Use a review only when you are confident. Reviews are limited, and “umpire’s call” keeps the original decision."]],
+s:["Chasing: 5 overs left, 40 runs needed","That is 8 an over. Aim for one boundary an over and singles on the other balls. Keep your best hitter on strike against the weaker bowler, and keep wickets in hand until the last two overs."],
+q:[["How many legal balls are in an over?",["5","6","8"],1,"An over is 6 legal deliveries."],["How many overs does each side face in an ODI?",["20","40","50"],2,"ODIs are 50 overs per side."]]},
+{n:"Tennis",b:"ITF Rules of Tennis",c:"#4f7200",
+r:[["Scoring","Points go 15, 30, 40, then game. At 40-40 (deuce) a player must win two points in a row, going through advantage."],
+["Serve","The server has two attempts. A serve that lands outside the diagonal service box is a fault, and two faults is a double fault. A let on serve is replayed."],
+["Sets and tiebreaks","The first player to win six games, with a two-game lead, wins a set. At 6-6, a tiebreak is played to 7 points, winning by two. Final-set rules vary by tournament."],
+["Foot fault","The server must not touch the baseline or court before hitting the ball."]],
+t:[["Serve placement","Mix wide, body and T serves. A serve down the T limits the receiver’s angles, and a body serve jams them."],
+["Attack the weaker side","Hit repeatedly to the backhand to force a weak reply, then go to the open court."],
+["Serve plus one","Use the first shot after the serve to attack the opponent’s return and take control of the point."],
+["Net play","Approach on a short or low ball, then close to the net. Volley behind the opponent when they have run to a corner."]],
+s:["Serving at 30-40 (break point)","Make your first serve high-percentage: wide in the ad court or at the body. Then look to hit a forehand to the open court so that the point is yours after the third shot."],
+q:[["What is the score called after deuce when the server wins the next point?",["Advantage server","Game","40-30"],0,"At deuce, one point gives advantage."],["A standard tiebreak is played to how many points, winning by two?",["5","7","10"],1,"Tiebreaks go to 7, win by two."]]},
+{n:"Field hockey",b:"FIH Rules of Hockey",c:"#0b5fa5",
+r:[["The basics","11 players per side, four quarters of 15 minutes. Only the flat side of the stick may touch the ball."],
+["Scoring","Goals count only if the ball is played by an attacker inside the shooting circle."],
+["Penalty corner","Awarded for a defensive foul in the circle or a deliberate foul in the defensive 23 m area. Attackers inject the ball from the backline, and the ball must be played outside the circle before the first shot at goal."],
+["Cards","A green card is a 2-minute suspension, yellow is at least 5 minutes, and red is permanent removal."]],
+t:[["Penalty-corner routines","Rehearse roles: the injector, the stopper and the striker (or drag-flicker). Variations stop defenders from guessing the shot."],
+["High press","Close down the opponent’s defenders in their 23 m area and force turnovers near goal. It needs fitness and fast support."],
+["3D skills","Use lifted passes over defenders and moves like the aerial ball to break a compact defence. Lifted balls must not be dangerous."],
+["Switch of play","Pass the ball quickly to the opposite side to stretch the defence and create room in the circle."]],
+s:["Trailing 1-0 with 5 minutes left","Many teams swap the goalkeeper for an extra field player. That gives numbers in attack but leaves the goal exposed to a long ball, so do it only when time is short."],
+q:[["From where must a goal be scored?",["Anywhere","The shooting circle"],1,"A goal counts only when shot from inside the circle."],["How many quarters are in a match?",["4","2","3"],0,"Four 15-minute quarters."]]},
+{n:"Rugby",b:"World Rugby Laws (union)",c:"#7a1f3d",
+r:[["Forward pass","The ball may only be passed sideways or backwards. A forward pass is penalised with a scrum to the other team."],
+["Knock-on","If the ball goes forward from a player’s hand or arm and touches the ground or another player before it is caught, the game stops and a scrum is awarded."],
+["Tackle","A tackle must be made below the shoulders. Tacklers must release the player and roll away so that others can play the ball."],
+["Scoring","A try is 5 points, a conversion 2, and a penalty kick or drop goal 3 each."]],
+t:[["Phase play","Keep the ball for several phases, moving the defence wide and back, until a gap appears."],
+["Kicking game","Kick for territory or contest the ball in the air with a box kick. It pins the opponent in their half."],
+["Defensive line speed","Move up together to cut the attacker’s time and space. A single slow defender creates a gap."],
+["Set pieces","Win your own scrum and lineout ball cleanly, and use them to launch planned moves."]],
+s:["Leading by 3 with 2 minutes left in your half","Keep the ball and avoid risk: pick-and-go close to the ruck to run down the clock, kick to touch if you must, and do not give away penalties."],
+q:[["How many points is a try worth in rugby union?",["3","5","7"],1,"A try is 5 points."],["In which direction can the ball be passed?",["Forward","Sideways or backwards"],1,"Forward passes are illegal."]]},
+{n:"Baseball",b:"MLB Official Rules",c:"#9a5b00",
+r:[["Innings and outs","A game has nine innings, and each half-inning ends after three outs."],
+["Strikes and balls","Three strikes is an out and four balls is a walk. A foul ball counts as a strike, except it cannot be the third strike."],
+["Force and tag","A runner who must advance because of a batter is out at a base if the fielder holds the ball on the base. Otherwise the runner must be tagged."],
+["Tag up","On a caught fly ball, a runner must touch the base they held after the catch before advancing."]],
+t:[["Pitch sequencing","Mix fastballs and off-speed pitches, change eye levels, and set up the pitch the batter is least ready for."],
+["Defensive shifts","MLB now requires two infielders on each side of second base, on the infield dirt, when the pitch is thrown."],
+["Bunting","Use a sacrifice bunt to move a runner into scoring position, trading an out for a base."],
+["Stealing","Steal when the pitcher is slow to the plate or the catcher has a weak arm. A good jump matters as much as speed."]],
+s:["Down by one, runner on first, one out, 8th inning","A bunt puts the tying run in scoring position but costs an out. If the next batter is a good contact hitter, a hit-and-run avoids giving up the out and can put runners on the corners."],
+q:[["How many outs end a half-inning?",["2","3","4"],1,"Three outs end a half-inning."],["How many balls give a walk?",["3","4","5"],1,"Four balls give a walk."]]},
+{n:"Outdoor basketball",b:"FIBA 3x3 rules",c:"#6d3fc4",
+r:[["Format","Two teams of three play on one hoop. The game lasts 10 minutes or ends when a team reaches 21 points."],
+["Scoring","A shot inside the arc is 1 point and a shot behind the arc is 2. A free throw is 1."],
+["Shot clock","A team has 12 seconds to attempt a shot. After a change of possession, the ball must be taken back behind the arc."],
+["Fouls","From the 7th team foul, the fouled player gets two free throws. Travelling (moving without dribbling) is a violation."]],
+t:[["Pick-and-roll","A teammate sets a screen for the ball handler and then rolls to the hoop. It forces the defence into a decision."],
+["Spacing","Keep players apart, with at least one on the arc, to make driving lanes and open shots."],
+["Switching defence","With three players, defenders often switch on screens. Talk to avoid a mismatch inside."],
+["Quick shots","With only 12 seconds on the clock, plan the first action early and avoid dribbling away the possession."]],
+s:["Tied 19-19, first to 21","A two-pointer wins the game outright. Run a pick-and-roll to get a clean look behind the arc, or drive for a one-point basket and defend the next possession."],
+q:[["How many points is a shot behind the arc worth in 3x3?",["1","2","3"],1,"Inside is 1 and outside is 2."],["How long is the 3x3 shot clock?",["12 seconds","24 seconds"],0,"It is 12 seconds."]]}];
+var P=[
+[["Lionel Messi (Argentina)","Forward and playmaker. Won the 2022 World Cup and a record eight Ballon d’Or awards."],["Cristiano Ronaldo (Portugal)","Forward. Five Ballon d’Or awards and the all-time top scorer in men’s international football."],["Pelé (Brazil)","Forward. The only player to win three World Cups (1958, 1962, 1970)."],["Diego Maradona (Argentina)","Attacking midfielder. Captained Argentina to the 1986 World Cup."],["Kylian Mbappé (France)","Forward. World Cup winner in 2018 and scored a hat-trick in the 2022 final."],["Erling Haaland (Norway)","Striker. Scored 36 Premier League goals in 2022-23, a record for a 38-game season."],["Marta (Brazil)","Forward. Six times FIFA World Player of the Year and the Women’s World Cup’s all-time top scorer."]],
+[["Sachin Tendulkar (India)","Batter. Most runs in Tests and ODIs, and the only player with 100 international centuries."],["Virat Kohli (India)","Batter. Holds the record for most ODI centuries and is known for chasing targets."],["MS Dhoni (India)","Wicketkeeper-batter. Captained India to the 2007 T20 World Cup, 2011 World Cup and 2013 Champions Trophy."],["Don Bradman (Australia)","Batter. Test average of 99.94, the greatest in the history of the game."],["Shane Warne (Australia)","Leg-spinner. Took 708 Test wickets and changed how spin is bowled."],["Muttiah Muralitharan (Sri Lanka)","Off-spinner. Most Test wickets in history, with 800."],["Jasprit Bumrah (India)","Fast bowler with a unique action, known for accurate yorkers."]],
+[["Roger Federer (Switzerland)","20 Grand Slam singles titles, including eight at Wimbledon. Known for elegant all-court play."],["Rafael Nadal (Spain)","22 Grand Slam titles, including 14 at the French Open. Known for heavy topspin and relentless defence."],["Novak Djokovic (Serbia)","24 Grand Slam singles titles (check for newer wins) and the most weeks as world No. 1."],["Serena Williams (USA)","23 Grand Slam singles titles, the most in the Open Era. Known for the biggest serve in the women’s game."],["Steffi Graf (Germany)","22 Grand Slam titles and the 1988 Golden Slam, winning all four majors and Olympic gold in one year."],["Carlos Alcaraz (Spain)","Won his first major at the 2022 US Open aged 19. Known for speed and variety."]],
+[["Dhyan Chand (India)","Forward. Won Olympic gold in 1928, 1932 and 1936, and is remembered as the wizard of hockey."],["Harmanpreet Singh (India)","Defender and drag-flicker, India captain. Top scorer at the Paris 2024 Olympics with 10 goals."],["PR Sreejesh (India)","Goalkeeper. Won Olympic bronze at Tokyo 2020 and Paris 2024, then retired from international hockey."],["Jamie Dwyer (Australia)","Forward. A five-time FIH Player of the Year."],["Luciana Aymar (Argentina)","Midfielder. A record eight-time FIH Player of the Year."]],
+[["Jonah Lomu (New Zealand)","Wing. Became rugby’s first global superstar at the 1995 World Cup."],["Richie McCaw (New Zealand)","Flanker. Captained the All Blacks to the 2011 and 2015 World Cups and won 148 caps."],["Jonny Wilkinson (England)","Fly-half. Kicked the winning drop goal in the 2003 World Cup final."],["Brian O’Driscoll (Ireland)","Centre. Won 133 caps and led Ireland to the 2009 Six Nations Grand Slam."],["Siya Kolisi (South Africa)","Flanker. First Black captain of the Springboks and winner of the 2019 and 2023 World Cups."],["Antoine Dupont (France)","Scrum-half. Twice World Rugby Player of the Year and a Sevens Olympic champion in 2024."]],
+[["Babe Ruth (USA)","Pitcher and outfielder. Hit 714 career home runs and changed the way the game was played."],["Jackie Robinson (USA)","Infielder. Broke baseball’s colour barrier with the Brooklyn Dodgers in 1947."],["Barry Bonds (USA)","Outfielder. Holds the records for career (762) and single-season (73) home runs."],["Derek Jeter (USA)","Shortstop. 3,465 hits and five World Series titles with the New York Yankees."],["Mike Trout (USA)","Outfielder. Three-time American League MVP, widely seen as the best player of his era."],["Shohei Ohtani (Japan)","Two-way star who both pitches and hits. Won multiple unanimous MVP awards and had the first 50-home-run, 50-stolen-base season in 2024."]],
+[["Michael Jordan (USA)","Guard. Six NBA titles and five MVP awards, still the global face of basketball."],["LeBron James (USA)","Forward. Four NBA titles and the NBA’s all-time leading scorer."],["Stephen Curry (USA)","Guard. Four NBA titles and the all-time leader in three-pointers, who changed shooting range."],["Kobe Bryant (USA)","Guard. Five NBA titles and an 81-point game in 2006."],["Kevin Durant (USA)","Forward. Two NBA Finals MVPs, four scoring titles and four Olympic golds."],["Earl Manigault (USA)","Harlem playground legend, “The Goat”, famous for his leaping ability at Rucker Park."],["Dusan Bulut (Serbia)","A leading 3x3 star, ranked among the best in FIBA 3x3 for many years."]]];
+var st={s:0,m:"r",qi:0,sc:0,a:null},M=[["r","Rules"],["t","Tactics"],["p","Players"],["g","Managers"],["s","Match scenario"],["q","Quiz"]],
+G=[
+[["Alex Ferguson (Manchester United)","Won 13 Premier League titles and two Champions Leagues. The most successful British manager."],["Pep Guardiola (Barcelona, Bayern, Manchester City)","Won the 2009 sextuple with Barcelona and the 2023 treble with Manchester City. Known for possession football."],["Carlo Ancelotti (Milan, Real Madrid)","Won the Champions League five times as a manager, a record."],["Arsène Wenger (Arsenal)","Led Arsenal through the 2003-04 league season unbeaten and modernised English football."],["José Mourinho","Won the Champions League with Porto in 2004 and Inter in 2010. Known for tight defence and big-match tactics."],["Jürgen Klopp (Liverpool)","Won the 2019 Champions League and the 2019-20 Premier League with his high-energy gegenpressing."]],
+[["Clive Lloyd (West Indies)","Captain of the dominant West Indies side that won the 1975 and 1979 World Cups."],["Ricky Ponting (Australia)","Captained Australia to the 2003 and 2007 World Cups."],["Imran Khan (Pakistan)","Captained Pakistan to the 1992 World Cup."],["MS Dhoni (India)","Captain who won the 2007 T20 World Cup, 2011 World Cup and 2013 Champions Trophy."],["Gary Kirsten (India coach)","Coached India to the 2011 World Cup and to the top Test ranking."],["Rahul Dravid (India coach)","Coached India to the 2024 T20 World Cup title."]],
+[["Toni Nadal","Coached his nephew Rafael Nadal through most of his 22 Grand Slam titles."],["Ivan Lendl","Coached Andy Murray to three Grand Slam titles."],["Boris Becker","Coached Novak Djokovic during a run of six Grand Slam titles."],["Patrick Mouratoglou","Long-time coach of Serena Williams."],["Nick Bollettieri","Founded the famous Florida academy that trained many world No. 1 players."],["Darren Cahill","Has coached Andre Agassi, Lleyton Hewitt and Jannik Sinner."]],
+[["Ric Charlesworth (Australia)","Led Australia’s women and men to Olympic and World Cup titles and shaped modern tactics."],["Roelant Oltmans (Netherlands, India)","Dutch coach who led the Netherlands to major titles and later coached India."],["Carlos Retegui (Argentina)","Coached Argentina’s men to Olympic gold in Rio 2016."],["Craig Fulton (India)","Coached India to the Olympic bronze medal in Paris 2024."]],
+[["Clive Woodward (England)","Coached England to the 2003 Rugby World Cup."],["Graham Henry (New Zealand)","Coached the All Blacks to the 2011 Rugby World Cup."],["Steve Hansen (New Zealand)","Coached the All Blacks to the 2015 Rugby World Cup."],["Rassie Erasmus (South Africa)","Coached South Africa to the 2019 World Cup and led the setup as director of rugby in 2023."],["Warren Gatland (Wales, Lions)","Won Six Nations Grand Slams with Wales and coached the British & Irish Lions."]],
+[["Connie Mack","Managed for 50 years and holds the record for most wins by a manager, 3,731."],["Casey Stengel","Led the New York Yankees to seven World Series titles."],["Joe Torre","Led the Yankees to four World Series titles in the late 1990s and 2000."],["Tony La Russa","Won three World Series and ranks among the winningest managers ever."],["Bobby Cox","Led the Atlanta Braves to 14 straight division titles."]],
+[["Phil Jackson","Won 11 NBA titles as a coach with the Bulls and the Lakers."],["Gregg Popovich","Won five NBA titles with the San Antonio Spurs and became the winningest coach in NBA history."],["Red Auerbach","Won nine NBA titles with the Boston Celtics."],["Pat Riley","Won five NBA titles as a coach and built the Showtime Lakers."],["Mike Krzyzewski","Coached Duke for decades and the United States to Olympic gold."]]],
+T20=[["Lionel Messi (Football)","Often named the greatest footballer ever: the 2022 World Cup and a record eight Ballon d’Or awards."],["Cristiano Ronaldo (Football)","Often named the greatest footballer ever: the top scorer in men’s international football and five Ballon d’Or awards."],["Pelé (Football)","The only player to win three World Cups."],["Diego Maradona (Football)","Led Argentina to the 1986 World Cup."],["Michael Jordan (Basketball)","Six NBA titles and five MVP awards."],["LeBron James (Basketball)","Four NBA titles and the NBA’s all-time leading scorer."],["Sachin Tendulkar (Cricket)","100 international centuries and the most runs in Tests and ODIs."],["Don Bradman (Cricket)","A Test batting average of 99.94."],["Virat Kohli (Cricket)","The record for most ODI centuries."],["Roger Federer (Tennis)","20 Grand Slam singles titles, eight at Wimbledon."],["Rafael Nadal (Tennis)","22 Grand Slam titles, 14 at the French Open."],["Novak Djokovic (Tennis)","24 Grand Slam singles titles (check for newer wins)."],["Serena Williams (Tennis)","23 Grand Slam singles titles in the Open Era."],["Babe Ruth (Baseball)","714 home runs and the first superstar of the sport."],["Shohei Ohtani (Baseball)","A two-way star with multiple MVP awards."],["Stephen Curry (Basketball)","Four NBA titles and the all-time three-point leader."],["Kobe Bryant (Basketball)","Five NBA titles and an 81-point game."],["Dhyan Chand (Field hockey)","Three Olympic golds, remembered as the wizard of hockey."],["Jonah Lomu (Rugby)","Rugby’s first global superstar."],["Shane Warne (Cricket)","708 Test wickets and the master of leg-spin."]];
+var QX=[
+[["How long is a standard football match, excluding stoppage time?",["60 minutes","90 minutes","100 minutes"],1,"Two halves of 45 minutes."],["What does a red card mean?",["A caution","The player is sent off","The free kick is retaken"],1,"A red card sends the player off and the team plays a player short."],["A defender commits a direct free-kick foul inside their own box. What is given?",["Corner","Indirect free kick","Penalty kick"],2,"A direct free-kick offence by a defender inside their own penalty area is a penalty."]],
+[["How many players are in a fielding side?",["9","11","12"],1,"Eleven fielders, including the bowler and wicketkeeper."],["What follows a no-ball in white-ball cricket?",["A free hit","The over ends","The bowler is banned"],0,"The next delivery is a free hit."],["For LBW, the ball must be going on to do what?",["Reach the boundary","Hit the stumps","Bounce twice"],1,"The umpire must judge that the ball would have hit the stumps."]],
+[["What is a score of 40-40 called?",["Tie","Deuce","Advantage"],1,"40-40 is deuce."],["What is it called when a server misses both serves?",["Let","Double fault","Foot fault"],1,"Two faults in a row is a double fault and loses the point."],["How many games does a player normally need to win a set, with a two-game lead?",["4","6","8"],1,"Six games, winning by two."]],
+[["How many players per side are on the pitch?",["9","11","7"],1,"Eleven, including the goalkeeper."],["Which card is a 2-minute suspension?",["Green","Yellow","Red"],0,"A green card is a 2-minute suspension."],["Which part of the stick may touch the ball?",["Either side","Flat side only","Rounded side only"],1,"Only the flat side may be used."]],
+[["How many points is a conversion worth?",["1","2","3"],1,"A conversion is worth 2 points."],["Where must a tackle be made?",["Above the shoulders","Below the shoulders","Anywhere"],1,"Tackles must be below the line of the shoulders."],["How many players does a rugby union team have on the field?",["13","15","11"],1,"Fifteen players."]],
+[["How many strikes make a strikeout?",["2","3","4"],1,"Three strikes is an out."],["How many innings are in a standard MLB game?",["7","9","11"],1,"Nine innings."],["On a caught fly ball, what must a runner do before advancing?",["Tag up","Slide","Wait for a walk"],0,"The runner must touch the base held after the catch."]],
+[["How many players per team are on court in 3x3?",["3","5","4"],0,"Three on court per team."],["What score ends a 3x3 game early?",["15","21","30"],1,"The first team to 21 wins, if time has not run out."],["How many points is a free throw in 3x3?",["1","2","3"],0,"One point."]]];
+var $=function(i){return document.getElementById(i)},out=$("out"),V=false,HAS=!!(window.claude&&window.claude.use),VIEW="sport",NAME="",LASTQ="";
+var MN={r:"rules",t:"tactics",p:"players",g:"managers",s:"scenario",q:"quiz"};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function slug(n){return n.toLowerCase().replace(/[^a-z0-9]/g,"")}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function deck(){st.qs=shuf(S[st.s].q.concat(QX[st.s])).map(function(q){var o=shuf(q[1].map(function(t,i){return[t,i==q[2]]}));return[q[0],o.map(function(x){return x[0]}),o.findIndex(function(x){return x[1]}),q[3]]});st.qi=0;st.sc=0;st.a=null}
+function best(n,v){var b={};try{b=JSON.parse(localStorage.getItem("ultron_best")||"{}")}catch(e){}if(v!==undefined&&(b[n]===undefined||v>b[n])){b[n]=v;try{localStorage.setItem("ultron_best",JSON.stringify(b))}catch(e){}}return b[n]}
+function pickVoice(){if(!window.speechSynthesis)return null;var vs=speechSynthesis.getVoices().filter(function(v){return /^en/i.test(v.lang)});var m=vs.filter(function(v){return /Male|Daniel|Ryan|Guy|David|Mark|Alex|George|James|Arthur|Oliver|Thomas|Brian|Andrew/i.test(v.name)&&!/Female/i.test(v.name)});var n=m.filter(function(v){return /Natural|Neural|Online/i.test(v.name)});return n[0]||m.filter(function(v){return /en-GB/i.test(v.lang)})[0]||m[0]||null}
+function talk(){if(!V||!window.speechSynthesis)return;speechSynthesis.cancel();var e=out.querySelector(".fb")||$("fr").querySelector(".say");if(!e||!e.textContent)return;var u=new SpeechSynthesisUtterance(e.textContent),v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang="en-GB";u.pitch=.85;speechSynthesis.speak(u)}
+$("vb").addEventListener("click",function(){if(!window.speechSynthesis){fr("Your browser does not support read-aloud.");return}V=!V;this.setAttribute("aria-pressed",V);if(V)talk();else speechSynthesis.cancel()});
+$("th").addEventListener("click",function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark";try{localStorage.setItem("ultron_theme",r.dataset.theme)}catch(e){}});
+try{var TH=localStorage.getItem("ultron_theme");if(TH)document.documentElement.dataset.theme=TH}catch(e){}
+function fr(t,c){$("fr").innerHTML='<p class="say">'+esc(t)+'</p>'+((c&&c.length)?'<div class="chips">'+c.map(function(x){return'<button data-k="'+x[0]+'">'+esc(x[1])+'</button>'}).join("")+'</div>':"");talk()}
+function chrome(){
+$("sp").innerHTML=S.map(function(x,i){return'<button data-s="'+i+'" aria-pressed="'+(VIEW=="sport"&&i==st.s)+'"><i style="background:'+x.c+'"></i>'+esc(x.n)+'</button>'}).join("")+'<button data-act="top" aria-pressed="'+(VIEW=="top")+'"><i style="background:#888"></i>Top 20 greats</button>';
+var on=VIEW=="sport";$("md").hidden=!on;$("hero").hidden=VIEW=="search";
+$("md").innerHTML=M.map(function(x){var a=x[0]==st.m;return'<button role="tab" id="tab-'+x[0]+'" aria-controls="out" tabindex="'+(a?0:-1)+'" data-m="'+x[0]+'" aria-selected="'+a+'">'+x[1]+'</button>'}).join("");
+if(st.kf){var s=$("md").querySelector("[aria-selected=true]");if(s)s.focus();st.kf=false}
+var s0=S[st.s];document.documentElement.style.setProperty("--ac",on?s0.c:"#1f7a4d");
+$("hero").innerHTML=on?'<h2>'+esc(s0.n)+'</h2><p class="meta">Following: '+esc(s0.b)+'</p>':VIEW=="top"?'<h2>Top 20 greats</h2><p class="meta">A popular ranking across the seven sports, not an official one.</p>':"";
+if(on)out.setAttribute("aria-labelledby","tab-"+st.m)}
+function it(a,x){return'<div class="item"><h3>'+esc(a[0])+'</h3><p>'+esc(a[1])+'</p>'+(x||"")+'</div>'}
+var MSG={r:"Rulebook loaded. These are the points people most often get wrong.",t:"Tactical notes loaded. Choose the plan that fits your players.",p:"Records are quoted as last verified. Check recent seasons for anything newer.",g:"The coaches and managers who shaped the game.",s:"Count what you need per over, phase or point, then choose the lowest-risk way to get it.",q:"Quiz mode: five questions, shuffled each time."};
+function follow(){var x=S[st.s],o=["other","Different sport"],q=["md:q","Quiz me"],m=st.m,c={r:[["md:t","Tactics"],q,o],t:[["md:s","Scenario"],q,o],p:[q,["md:t","Tactics"],o],g:[["md:p","Players"],q,o],s:[q,["md:r","Back to rules"],o]}[m];
+if(m=="q"){var qq=st.qs[st.qi];fr(qq?"Question "+(st.qi+1)+" of "+st.qs.length+".":"Quiz complete. "+verdict(),qq?[]:[["md:q","Play again"],["md:r","Back to rules"],o])}else fr(MSG[m]+" "+x.n+".",c)}
+function verdict(){var r=st.sc/st.qs.length;return r==1?"Flawless.":r>=.6?"Respectable.":"Worth another look at the rules tab."}
+function show(){VIEW="sport";var x=S[st.s],h="";chrome();
+if(st.m=="r"||st.m=="t")h=(st.m=="r"?x.r:x.t).map(function(a){return it(a)}).join("");
+if(st.m=="g")h=G[st.s].map(function(a){return it(a)}).join("");
+if(st.m=="p"){h=P[st.s].map(function(a){return it(a,HAS?'<button class="mini" data-ask="'+esc(a[0].replace(/ \(.*/,""))+'">Ask Ultron for more</button>':"")}).join("");if(st.s==0)h='<div class="item wide"><h3>The greatest-ever debate</h3><p>Lionel Messi and Cristiano Ronaldo are the two players most often named in it. There is no official verdict.</p></div>'+h}
+if(st.m=="s")h='<div class="item wide"><h3>'+esc(x.s[0])+'</h3><p>'+esc(x.s[1])+'</p></div>';
+if(st.m=="q"){if(!st.qs||!st.qs.length)deck();var q=st.qs[st.qi];h='<div class="prog" aria-hidden="true"><b style="width:'+Math.round(100*st.qi/st.qs.length)+'%"></b></div>';
+if(!q){var b=best(x.n,st.sc);h+='<div class="item wide"><h3>Quiz complete</h3><p>You scored '+st.sc+' out of '+st.qs.length+'. Your best on '+esc(x.n)+': '+b+'.</p></div><p><button class="go" data-act="again">Play again</button></p>'}
+else{h+='<div class="item wide"><h3>'+esc(q[0])+'</h3></div><div class="opts">'+q[1].map(function(o,i){var c="";if(st.a!==null){if(i==q[2])c="ok";else if(i==st.a)c="bad"}return'<button class="'+c+'" data-o="'+i+'"'+(st.a!==null?" disabled":"")+'>'+esc(o)+'</button>'}).join("")+'</div>';
+if(st.a!==null)h+='<p class="fb"><b>'+(st.a==q[2]?"Correct.":"Not quite.")+'</b> '+esc(q[3])+'</p><button class="go" data-act="next">'+(st.qi<st.qs.length-1?"Next question":"See score")+'</button>'}}
+out.innerHTML=st.m=="q"||st.m=="s"?h:'<div class="grid">'+h+'</div>';follow();try{history.replaceState(null,"","#"+slug(x.n)+"-"+MN[st.m])}catch(e){}}
+function top20(){VIEW="top";chrome();out.removeAttribute("aria-labelledby");out.innerHTML='<div class="grid">'+T20.map(function(a,i){return it([(i+1)+". "+a[0],a[1]])}).join("")+'</div>';fr("Pick a sport to go deeper on any of these names.",[["other","Pick a sport"]]);try{history.replaceState(null,"","#top20")}catch(e){}}
+var STOP="the a an is are was be to of in on at for and or what when how why who does do can i you it with by from that this which give given get gets".split(" "),IDX=null;
+function index(){IDX=[];S.forEach(function(x,i){[["r","Rule"],["t","Tactic"]].forEach(function(k){x[k[0]].forEach(function(e){IDX.push([x.n,k[1],e,i,k[0]])})});IDX.push([x.n,"Scenario",x.s,i,"s"]);P[i].forEach(function(e){IDX.push([x.n,"Player",e,i,"p"])});G[i].forEach(function(e){IDX.push([x.n,"Coach",e,i,"g"])})})}
+function find(t,note){if(!IDX)index();LASTQ=t;
+var w=t.toLowerCase().split(/[^a-z0-9]+/).filter(function(z){return z.length>1&&STOP.indexOf(z)<0}),res=[];
+IDX.forEach(function(r){var h=r[2][0].toLowerCase(),b=(r[2][1]+" "+r[0]).toLowerCase(),sc=0;w.forEach(function(z){if(h.indexOf(z)>-1)sc+=4;if(b.indexOf(z)>-1)sc+=1});if(sc)res.push([sc].concat(r))});
+res.sort(function(a,b){return b[0]-a[0]});res=res.slice(0,6);VIEW="search";chrome();history.replaceState&&history.replaceState(null,"",location.pathname);
+if(!res.length){out.innerHTML="";fr("No match for “"+t+"”. Try a single word such as offside, LBW, tiebreak or scrum.",[["other","Pick a sport"]]);return}
+var re=new RegExp("("+w.map(function(z){return z.replace(/[^a-z0-9]/g,"")}).join("|")+")","gi");
+out.innerHTML='<div class="grid">'+res.map(function(r){return'<div class="item"><span class="tag">'+esc(r[1])+' · '+esc(r[2])+'</span><h3>'+esc(r[3][0]).replace(re,"<mark>$1</mark>")+'</h3><p>'+esc(r[3][1])+'</p><button class="mini" data-go="'+r[4]+":"+r[5]+'">Open '+esc(r[1])+' section</button></div>'}).join("")+'</div>';
+fr((note?"Ask-Ultron answers need the Claude app, so these are built-in matches for “":"Built-in matches for “")+t+"”.",[["other","Pick a sport"]])}
+function go(s,m){st.s=s;st.m=m||"r";st.qi=0;st.sc=0;st.a=null;st.qs=null;show()}
+function askSport(){VIEW="sport";fr("Which sport are we working on?",S.map(function(x,i){return["sp:"+i,x.n]}))}
+document.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var d=b.dataset;
+if(d.s!==undefined)go(+d.s,st.m=="q"?"q":st.m);
+else if(d.m)go(st.s,d.m);
+else if(d.o!==undefined){st.a=+d.o;if(st.a==st.qs[st.qi][2])st.sc++;show()}
+else if(d.act=="next"){st.qi++;st.a=null;show()}
+else if(d.act=="again")go(st.s,"q");
+else if(d.act=="top")top20();
+else if(d.go){var g=d.go.split(":");go(+g[1],g[0])}
+else if(d.ask)askAI("Tell me about "+d.ask+" in "+S[st.s].n.toLowerCase()+": career highlights, playing style and key records.");
+else if(d.k){var k=d.k.split(":");if(k[0]=="sp")go(+k[1],"r");else if(k[0]=="md")go(st.s,k[1]);else if(k[0]=="other")askSport()}});
+$("md").addEventListener("keydown",function(e){if(e.key!="ArrowRight"&&e.key!="ArrowLeft")return;var b=[].slice.call($("md").querySelectorAll("button")),i=b.indexOf(document.activeElement);if(i<0)return;e.preventDefault();st.kf=true;b[(i+(e.key=="ArrowRight"?1:b.length-1))%b.length].click()});
+$("f").addEventListener("submit",function(e){e.preventDefault();var v=$("q").value.trim();if(v)askAI(v);else $("q").focus()});
+var SYS="You are Ultron, a calm, warm and professional sports assistant. Open with one short, sincere sentence about the question, then answer fully and correctly. Your specialty is rules and tactics in football, cricket, tennis, field hockey, rugby, baseball and outdoor basketball, but help with any topic. Name the governing body when rules differ, and say so when you are unsure or something may have changed recently. Never invent facts. Use plain text with no markdown, short paragraphs, and under 220 words unless asked for more.",hist=[],busy=false;
+function askAI(v){if(busy)return;if(!HAS){find(v,true);return}busy=true;
+Promise.resolve().then(function(){return claude.use("sample")}).then(function(sm){
+if(!sm){busy=false;find(v,true);return}
+var c=document.createElement("div"),h=document.createElement("h3"),p=document.createElement("p");c.className="item wide";p.className="ans fb";h.textContent=v;c.appendChild(h);c.appendChild(p);VIEW="search";chrome();out.innerHTML="";out.appendChild(c);
+fr("One moment while I work that out.",[]);
+return sm(SYS+"\n\nConversation so far:\n"+hist.slice(-6).join("\n")+"\n\nNew question: "+v,{cache:false,onText:function(r){p.textContent=r.text}}).then(function(r){p.textContent=r.text;hist.push("User: "+v,"Ultron: "+r.text);busy=false;fr("Anything else? Ask again or pick a sport.",[["other","Pick a sport"]])})}).catch(function(err){busy=false;fr(err&&err.code=="not_granted"?"Please allow access when asked, then ask again.":"I could not reach the answer service just now. Showing built-in results instead.",[]);find(v,true)})}
+function route(){var h=(location.hash||"").slice(1);if(h=="top20")return top20();var m=h.match(/^([a-z0-9]+)-(rules|tactics|players|managers|scenario|quiz)$/);if(m){var i=S.findIndex(function(x){return slug(x.n)==m[1]});var k=Object.keys(MN).filter(function(z){return MN[z]==m[2]})[0];if(i>-1)return go(i,k)}
+chrome();out.innerHTML="";fr("Good day. I am Ultron. Search above, or choose a sport and I will walk you through the rules, tactics, players and a quiz.",S.map(function(x,i){return["sp:"+i,x.n]}))}
+window.addEventListener("hashchange",route);route();
+// Competition edition enhancements: local-first agent and durable 20-round quiz ladder.
+var baseDeck=deck,baseShow=show,roundModes=["Warm-up","Standard","Pro"],sessionStore={};
+function modeLabel(){var n=st.round||1,level=["Rookie","Pro","Elite"][((n-1)%3)];return (st.s===0?"Ball Knowledge":st.s===1?"Extreme":level)+((st.s===0||st.s===1)?" · "+level:"")}
+function generatedBank(si){var x=S[si],items=[];x.r.concat(x.t).forEach(function(a){items.push(["Which topic matches this coaching note: “"+a[1].slice(0,125)+(a[1].length>125?"…":"")+"” ?",a[0],a[1]])});(P[si]||[]).forEach(function(a){items.push(["Which athlete is described here: “"+a[1].slice(0,125)+(a[1].length>125?"…":"")+"” ?",a[0],a[1]])});(G[si]||[]).forEach(function(a){items.push(["Which coach or manager is described here: “"+a[1].slice(0,125)+(a[1].length>125?"…":"")+"” ?",a[0],a[1]])});return items}
+function sessionKey(){return "ultron_round_"+st.s}
+function startRound(){var key=sessionKey(),saved=[];try{saved=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){};if(saved.length>=20)saved=[];var round=Math.floor(saved.length/5)+1;st.round=round;var bank=generatedBank(st.s),pool=shuf(bank.filter(function(q){return saved.indexOf(q[1])<0}));if(pool.length<5){saved=[];pool=shuf(bank)}var chosen=pool.slice(0,5);saved=saved.concat(chosen.map(function(q){return q[1]}));try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}st.mode=modeLabel();st.qs=chosen.map(function(q,i){var distract=shuf(bank.filter(function(z){return z[1]!==q[1]})).slice(0,3).map(function(z){return z[1]}),opts=shuf([q[1]].concat(distract));return[q[0],opts,opts.indexOf(q[1]),q[2]]});st.qi=0;st.sc=0;st.a=null}
+deck=function(){startRound()};
+show=function(){baseShow();var x=S[st.s];document.documentElement.classList.remove("sport-football","sport-cricket","sport-tennis","sport-fieldhockey","sport-rugby","sport-baseball","sport-outdoorbasketball");document.documentElement.classList.add("sport-"+slug(x.n));var hero=$("hero");if(VIEW==="sport")hero.innerHTML='<div class="hero-art" data-ball="'+({Football:"⚽",Cricket:"🏏",Tennis:"🎾","Field hockey":"🏑",Rugby:"🏉",Baseball:"⚾","Outdoor basketball":"🏀"}[x.n])+'"><h2>'+esc(x.n)+' arena</h2><p>Rules, tactics and match intelligence · '+esc(x.b)+'</p></div>';if(st.m==="q"){var controls=document.createElement("div");controls.className="quiz-tools";controls.innerHTML='<span class="session-badge">'+esc(st.mode||modeLabel())+' · Round '+(st.round||1)+' of 20</span><button type="button" data-act="again">New round</button><span class="session-badge">5 questions · shuffled choices</span>';out.insertBefore(controls,out.firstChild)} };
+var oldAsk=askAI;askAI=function(question){var low=question.toLowerCase(),matches=[];if(!IDX)index();IDX.forEach(function(r){var words=low.split(/[^a-z0-9]+/).filter(function(w){return w.length>2}),text=(r[0]+" "+r[2][0]+" "+r[2][1]).toLowerCase(),score=words.reduce(function(n,w){return n+(text.indexOf(w)>=0?1:0)},0);if(score)matches.push({score:score,r:r})});matches.sort(function(a,b){return b.score-a.score});var box=document.createElement("div");box.className="agent-panel";var title=document.createElement("h3");title.textContent="ULTRON · Sports desk";box.appendChild(title);var answer=document.createElement("p");answer.className="agent-answer";if(matches.length){var best=matches.slice(0,3).filter(function(m){return m.score>=Math.max(1,matches[0].score-1)});answer.textContent=best.map(function(m){return m.r[0]+" · "+m.r[1]+" — "+m.r[2][0]+": "+m.r[2][1]}).join("\n\n")}else answer.textContent="I’m running in offline mode. I can answer from the built-in seven-sport rules, tactics, player and coach library. Try a sport or term such as offside, LBW, serve, scrum, tag up, penalty corner or pick-and-roll. For questions outside this library or current facts, connect a private AI backend.";box.appendChild(answer);var hint=document.createElement("p");hint.className="tag";hint.textContent="Built-in offline answer · no API key or network required";box.appendChild(hint);VIEW="search";chrome();out.innerHTML="";out.appendChild(box);fr("Ask follow-up questions in the search bar, or choose a sport to explore.",[["other","Pick a sport"]])};
+// Improve quiz completion and render a mode selector for each sport.
+var origChrome=chrome;chrome=function(){origChrome();if(VIEW==="sport"&&st.m==="q"){var tabs=$("md");if(tabs&&!tabs.querySelector("#mode-label")){var lab=document.createElement("span");lab.id="mode-label";lab.className="tag";lab.textContent="Mode: "+modeLabel();tabs.appendChild(lab)}}};
+// Keep this file fully offline; remote model answers require a separately configured backend.
+</script>
+</body>
+</html>
